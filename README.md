@@ -29,11 +29,13 @@ This repo contains a 5,942-digit prime whose bytes are a gzip stream that decomp
 
 ## Quick start
 
+To see femtoGPT from the prime number above
+
 ```bash
 python verify_prime.py
 ```
 
-To quickly run the model from the prime number
+To quickly run the model in the prime number
 
 ```bash
 python3 -c "$(python3 verify_prime.py)"
