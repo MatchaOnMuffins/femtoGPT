@@ -2,13 +2,13 @@
 
 A GPT model that is a prime number.
 
-Yesterday, Kuber Mehta made a post about putting a GPT model inside a QR code.
+Yesterday (Feb 13 2026), Kuber Mehta made a post about putting a GPT model inside a QR code.
 
 What's the fun in a QR code?
 
 I trimmed his code down to about 53 lines and made a prime number from it.
 
-This repo contains a 3,000-digit prime whose bytes are a gzip stream that decompresses to a complete, trainable GPT implementation -- in pure Python with zero dependencies.
+This repo contains a 3,600-digit prime whose bytes are a gzip stream that decompresses to a complete, trainable GPT implementation -- in pure Python with zero dependencies.
 
 ## The Prime
 
@@ -50,13 +50,13 @@ This takes the prime number embedded in the script, converts it to bytes, decomp
 picoGPT.py    Kuber Mehta's pico GPT (https://github.com/Kuberwastaken/picogpt/blob/main/picogpt.py) 
        | golf
        v
-femtoGPT.py      same model in ~50 lines
+femtoGPT.py      same model in ~53 lines
        | gzip compress + pad 4 bytes
        v
   big integer       interpret bytes as big-endian int
        | gmpy2.next_prime()
        v
-  THE PRIME          5,942 digits, but a valid gzip stream
+  THE PRIME          3,600 digits, but a valid gzip stream
 ```
 
 Since gzip decompressors stop reading after the first valid stream and ignore trailing bytes. Appending 4 bytes of padding after the compressed data gives enough room (~2^32 candidates) to find a nearby prime without disturbing the gzip payload.
